@@ -19,13 +19,13 @@ class pollsAdapter(val context: Context, var arr : ArrayList<Question>, val IndP
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.name.text = arr[position].question
-        holder.ans.text = arr[position].votes.toString()
-        holder.owner.text= arr[position].name
+        holder.name.text = arr.get(position).question
+        holder.ans.text = arr.get(position).votes.toString()
+        holder.owner.text= arr.get(position).name
 
         holder.itemView.setOnClickListener {
 
-            IndPoll.redirecttodisplay(arr[position].uid, arr[position])
+            IndPoll.redirecttodisplay(arr.get(position).uid, arr.get(position))
             notifyDataSetChanged()
         }
     }

@@ -26,9 +26,11 @@ class UserpollsAdapter(val context: Context, var arr : ArrayList<Question>, val 
 
         holder.del.setOnClickListener {
             userPoll.delete(arr[position].uid, position)
+            notifyDataSetChanged()
         }
             holder.name.setOnClickListener {
                 userPoll.redirect(arr[position])
+                notifyDataSetChanged()
             }
 
 

@@ -43,7 +43,7 @@ class DisplayFragment : Fragment(), AnswerPoll {
         val args = this.arguments
 
         val poll = args!!.getParcelable<Question?>("poll")!!
-        Toast.makeText(requireContext(), poll!!.name, Toast.LENGTH_SHORT).show()
+        //Toast.makeText(requireContext(), poll!!.name, Toast.LENGTH_SHORT).show()
 
         val recycler = view.findViewById<RecyclerView>(R.id.displayrecyler)
         adapter = DisplayPollAdapter(requireContext(), poll!!, this)
@@ -67,8 +67,8 @@ class DisplayFragment : Fragment(), AnswerPoll {
                         if(it.isSuccessful) {
                             db.child("polls").child(poll.uid).child("answeredby").child(mAuth.currentUser!!.uid).removeValue().addOnCompleteListener {
                                 if(it.isSuccessful) {
-                                    //poll.answeredby.removeAt(ind)
-                                    //poll.votechoice.removeAt(ind)
+                                    poll.answeredby.removeAt(ind)
+                                    poll.votechoice.removeAt(ind)
 
                                     adapter.poll = poll
                                     adapter.notifyDataSetChanged()
@@ -95,11 +95,12 @@ class DisplayFragment : Fragment(), AnswerPoll {
 
     override fun redirect(poll: Question, i : Int) {
 
-        poll.options[i].votes += 1
+        //poll.options[i].votes += 1
+        val option = poll.options[i]
         //option.votes+= 1
+        option.votes += 1
 
         Log.i("uid", poll.options.size.toString())
-        val votechoice = ArrayList<String>()
         db.child("polls").child(poll.uid).child("options").child(poll.options[i].uid.toString()).setValue(poll.options[i])
             .addOnCompleteListener {
                 if(it.isSuccessful) {
@@ -111,7 +112,7 @@ class DisplayFragment : Fragment(), AnswerPoll {
                             poll.answeredby.add(mAuth.currentUser!!.uid)
                             poll.votechoice.add(poll.options[i].uid.toString())
                             Toast.makeText(requireContext(), "your vote has been casted", Toast.LENGTH_SHORT).show()
-                            //adapter.poll.options[i] = option
+                            adapter.poll.options[i] = option
                             for(i in poll.options) {
                                 Log.i("options", i.value.toString())
                             }

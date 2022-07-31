@@ -106,66 +106,15 @@ class UserPollsFragment : Fragment(), UserPoll {
 
     override fun redirect(poll: Question) {
 
-
-        val fragment = DisplayFragment()
-        val bundle = Bundle()
-        bundle.putParcelable("poll",poll)
-        fragment.arguments = bundle
-        val tran = requireActivity().supportFragmentManager.beginTransaction()
-        tran.replace(R.id.fragment, fragment)
-        tran.addToBackStack(null)
-        tran.commit()
-
-
-        /*
-        val optionss = ArrayList<Options>()
-        val answeredby = ArrayList<String>()
-        val p = db.child("polls").child(uid)
-        p.addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val uid = snapshot.child("createdby").getValue().toString()
-                //Log.i("mytag",uid.toString())
-                var votes = 0
-                val optionsRef = snapshot.child("options")
-                for (c in optionsRef.children) {
-                    val value = c.child("value").getValue().toString()
-                    val vote = c.child("votes").getValue().toString().toInt()
-                    //Log.i("mytag", value)
-                    val option = Options(c.key,value, vote)
-                    optionss.add(option!!)
-                    votes += vote
-                }
-                var question = ""
-                val qu = snapshot.child("question").children
-                for(q in qu) {
-                    question = q.getValue().toString()
-                }
-
-                //Log.i("mytag",question)
-                for (child in snapshot.child("answeredby").children) {
-                    val option = child.getValue().toString()
-                    answeredby.add(option)
-                }
-                val name = snapshot.child("name").getValue().toString()
-                val pollid = snapshot.child("pollid").getValue().toString()
-                //Toast.makeText(requireContext(), pollid, Toast.LENGTH_SHORT).show()
-                val poll = Question(pollid,name!!,question ,votes, uid, optionss,answeredby)
-
-                val fragment = DisplayFragment()
                 val bundle = Bundle()
                 bundle.putParcelable("poll",poll)
+                val fragment = DisplayFragment()
+
                 fragment.arguments = bundle
-                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment, fragment).commit()
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-        })
-
-         */
+                val tran = requireActivity().supportFragmentManager.beginTransaction()
+                tran.replace(R.id.fragment, fragment)
+                //tran.addToBackStack(null)
+                tran.commit()
     }
 
     override fun delete(uid: String,ind : Int) {

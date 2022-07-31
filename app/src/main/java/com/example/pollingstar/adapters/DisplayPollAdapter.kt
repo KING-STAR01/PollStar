@@ -41,7 +41,7 @@ class DisplayPollAdapter(context: Context, var poll : Question, val answerpoll :
             (holder as Unansered).option.text = poll.options[position].value
             holder.itemView.setOnClickListener {
                 answerpoll.redirect(poll, position)
-                //notifyDataSetChanged()
+                notifyDataSetChanged()
                 Log.i("mytag", poll.options[position].value)
             }
         }
