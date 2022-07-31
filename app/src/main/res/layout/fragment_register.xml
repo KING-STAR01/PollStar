@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Loginfragments.LoginFragment">
+
+    <TextView
+        android:id="@+id/regtv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Welcome to Polling Star"
+        android:textColor="#DFAA0C"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.107" />
+
+    <EditText
+        android:id="@+id/regname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="9dp"
+
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="9dp"
+        android:background="@drawable/ed_background"
+        android:hint="Name"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regtv"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <EditText
+        android:id="@+id/regemail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="9dp"
+
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="9dp"
+        android:background="@drawable/ed_background"
+        android:hint="Email"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regname"
+        app:layout_constraintVertical_bias="0.013" />
+
+
+    <EditText
+        android:id="@+id/regpass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/ed_background"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:hint="Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regemail" />
+
+    <Button
+        android:id="@+id/regbtn"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Register"
+        app:layout_constraintTop_toBottomOf="@+id/regpass"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:backgroundTint="@null"
+        android:background="@drawable/buttonbackround"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/reglogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already Have an Account? Login here"
+        app:layout_constraintTop_toBottomOf="@+id/regbtn"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "177667437097",
+    "firebase_url": "https://pollingstar-3612f-default-rtdb.firebaseio.com",
+    "project_id": "pollingstar-3612f",
+    "storage_bucket": "pollingstar-3612f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177667437097:android:8cd1b05d0e141cd690a238",
+        "android_client_info": {
+          "package_name": "com.example.pollingstar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177667437097-4kiqr9lmqgr484bvpo2ug1fhpda0g1k1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi1T0qVWENJR7VaEsMpxFrB5kJc9IFoN0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177667437097-4kiqr9lmqgr484bvpo2ug1fhpda0g1k1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
