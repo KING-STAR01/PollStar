@@ -76,13 +76,13 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId) {
                 R.id.create -> {
-                    Toast.makeText(applicationContext, "moving to create fragmet", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(applicationContext, "moving to create fragmet", Toast.LENGTH_SHORT).show()
                     supportFragmentManager.beginTransaction().replace(R.id.fragment, CreateFragment()).commit()
                     drawer.closeDrawers()
                 }
 
                 R.id.mypolls -> {
-                    Toast.makeText(applicationContext, "hello", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(applicationContext, "hello", Toast.LENGTH_SHORT).show()
                     supportFragmentManager.beginTransaction().replace(R.id.fragment, UserPollsFragment()).commit()
                     drawer.closeDrawers()
                 }
@@ -90,13 +90,13 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.logout -> {
                     mAuth.signOut()
-                    Toast.makeText(applicationContext, "hey", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(applicationContext, "hey", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
                 R.id.home -> {
-                    Toast.makeText(applicationContext, "moving to create fragmet", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(applicationContext, "moving to create fragmet", Toast.LENGTH_SHORT).show()
                     supportFragmentManager.beginTransaction().replace(R.id.fragment, MainFragment()).commit()
                     drawer.closeDrawers()
                 }
