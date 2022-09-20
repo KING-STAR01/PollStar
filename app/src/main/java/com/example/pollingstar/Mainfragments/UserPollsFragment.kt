@@ -38,31 +38,31 @@ class UserPollsFragment : Fragment(), UserPoll {
         (activity as AppCompatActivity).supportActionBar?.setTitle("My Polls")
 
 
-        ques = ArrayList()
-        val options = ArrayList<Options>()
-        val answeredby = ArrayList<String>()
-        val votechoice = ArrayList<String>()
 
         val pollsRef = db.child("polls")
         val usersRef = db.child("users")
+        ques = ArrayList()
+
         pollsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()) {
-                    ques.clear()
+                    //ques.clear()
                     for(poll in snapshot.children) {
                         val uid = poll.child("createdby").getValue().toString()
                         //Log.i("mytag",uid.toString())
-                        options.clear()
-                        answeredby.clear()
-                        votechoice.clear()
+                        val options = ArrayList<Options>()
+                        val answeredby = ArrayList<String>()
+                        val votechoice = ArrayList<String>()
+                        //answeredby.clear()
+                        //votechoice.clear()
                         var votes = 0
                         val optionsRef = poll.child("options")
                         for (c in optionsRef.children) {
                             val value = c.child("value").getValue().toString()
                             val vote = c.child("votes").getValue().toString().toInt()
                             //Log.i("mytag", value)
-                            val option = Options(c.key,value, vote)
-                            options.add(option!!)
+                            val option1 = Options(c.key,value, vote)
+                            options.add(option1)
                             votes += vote
                         }
                         var question = ""
@@ -109,7 +109,7 @@ class UserPollsFragment : Fragment(), UserPoll {
                 val bundle = Bundle()
                 bundle.putParcelable("poll",poll)
                 val fragment = DisplayFragment()
-
+                Log.i("parcelable", poll.options[1].toString())
                 fragment.arguments = bundle
                 val tran = requireActivity().supportFragmentManager.beginTransaction()
                 tran.replace(R.id.fragment, fragment)
