@@ -39,9 +39,6 @@ class UserPollsFragment : Fragment(), UserPoll {
 
 
         ques = ArrayList()
-        val options = ArrayList<Options>()
-        val answeredby = ArrayList<String>()
-        val votechoice = ArrayList<String>()
 
         val pollsRef = db.child("polls")
         val usersRef = db.child("users")
@@ -52,9 +49,9 @@ class UserPollsFragment : Fragment(), UserPoll {
                     for(poll in snapshot.children) {
                         val uid = poll.child("createdby").getValue().toString()
                         //Log.i("mytag",uid.toString())
-                        options.clear()
-                        answeredby.clear()
-                        votechoice.clear()
+                        val options = ArrayList<Options>()
+                        val answeredby = ArrayList<String>()
+                        val votechoice = ArrayList<String>()
                         var votes = 0
                         val optionsRef = poll.child("options")
                         for (c in optionsRef.children) {
