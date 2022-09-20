@@ -33,6 +33,8 @@ class CreateFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        setRetainInstance(true)
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_create, container, false)
         (activity as AppCompatActivity).supportActionBar?.setTitle("Create Poll")
